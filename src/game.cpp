@@ -1,4 +1,4 @@
-#include <game.h>
+#include "game.h"
 
 void Game::run() 
 {
@@ -10,7 +10,10 @@ void Game::run()
 	}
 }
 
-
+Game::Game(std::pair<unsigned, unsigned> windowSize) : mWindow(sf::VideoMode(windowSize.first, windowSize.second), "Beowulf")
+{
+	
+}
 void Game::processEvents()
 {
     sf::Event event;

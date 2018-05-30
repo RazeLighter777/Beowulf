@@ -1,3 +1,6 @@
+#ifndef GAME
+#define GAME
+
 #include <utility>
 #include <SFML/Graphics.hpp>
 
@@ -28,3 +31,4 @@ private:
 	sf::RenderWindow mWindow;
 
 };
+#endif
