@@ -59,9 +59,11 @@ struct WorldInterface {
 	virtual ~WorldInterface() {
 	};
 
+	//Request a texture from the game engine
 	virtual sf::Texture& getTexture(std::string textureName) = 0;
 
-
+	//Request a sound from the game engine
+	virtual sf::SoundBuffer& getSound(std::string soundName) = 0;
 
 };
 
