@@ -4,12 +4,14 @@
 #include <memory>
 #include <utility>
 #include <iostream>
+#include <fstream>
 #include "EntityFactory.h"
 #include "RoomFactory.h"
 #include "ItemFactory.h"
 #include "EffectFactory.h"
 #include "WorldInterface.h"
 #include "Room.h"
+#include "Item.h"
 #include "WorldGenerator.h"
 #include "Entity.h"
 #include "game.h"
@@ -20,10 +22,10 @@ public:
 	//Constructs the world object.
 	World(Game& game_, 
 		std::string filename_,
-		std::vector<std::shared_ptr<EntityFactory>> entityFactories_,
-		std::vector<std::shared_ptr<ItemFactory>> itemFactories_,
-		std::vector<std::shared_ptr<EffectFactory>> effectFactories_,
-		std::vector<std::shared_ptr<RoomFactory>> roomFactories_,
+		std::vector<EntityFactory*> entityFactories_,
+		std::vector<ItemFactory*> itemFactories_,
+		std::vector<EffectFactory*> effectFactories_,
+		std::vector<RoomFactory*> roomFactories_,
 		WorldGenerator& wgen
 		);
 
@@ -39,6 +41,9 @@ public:
 	//Creates an item and returns a pointer to it.
 	std::unique_ptr<Item> createItem(std::string name);
 
+	//Same as above, but creates it from serialization data.
+	std::unique_ptr<Item> createItem(std::string serializationData, std::string name);
+
 	bool entityTypeExists(std::string name);
 
 	void createEntity(std::string serializationData, std::string name);
@@ -49,10 +54,17 @@ public:
 
 	std::vector<std::shared_ptr<Entity>> getEntitiesOnTile(Position pos);
 
-	//Needs implementation.
+	std::vector<std::shared_ptr<Entity>> getEntitiesInRadius(Position pos, unsigned radius);
+
 	bool isValidMove(Position pos);
 
-	Room& getRoomAt(Position pos)
+	Room& getRoomAt(Position pos);
+
+	//Saves to world to the serialization file in  a retrievable format.
+	void saveWorld();
+
+	//Updates the world.
+	void update();
 
 //Data members for the world
 private:
@@ -69,8 +81,6 @@ private:
 	//The time that has passed since the game has begun.
 	unsigned long time = 0;
 
-
-
 	//Holds the vector of entities.
 	std::vector<std::shared_ptr<Entity>> entities;
 
@@ -84,7 +94,7 @@ private:
 
 	std::vector<RoomFactory*> roomFactories;
 
-	std::vector<ItemFactory*> ItemFactories;
+	std::vector<ItemFactory*> itemFactories;
 
 	std::vector<EffectFactory*> effectFactories;
 

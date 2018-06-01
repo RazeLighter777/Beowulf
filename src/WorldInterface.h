@@ -10,6 +10,7 @@
 #include <memory>
 #include <vector>
 #include <SFML/Audio.hpp>
+#include <SFML/Graphics.hpp>
 #include "typedefs.h"
 struct Room;
 struct Item;
@@ -55,7 +56,8 @@ struct WorldInterface {
 	//Updates the world and passes a tick.
 	virtual void update() = 0;
 
-	virtual void dropItem(std::unique_ptr<Item> item, Position pos) = 0;
+	//TODO: Add this later.
+	//virtual void dropItem(std::unique_ptr<Item> item, Position pos) = 0;
 
 	virtual ~WorldInterface() {
 	};

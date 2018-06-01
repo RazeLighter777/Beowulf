@@ -19,8 +19,10 @@ struct Entity {
 	//Returns the position of the entity on the gameboard
 	virtual Position getPosition() = 0;
 
-	//Renders the entity onto the screen 
-	virtual sf::Sprite& render() = 0;
+	virtual std::string getFactoryName() const = 0;
+
+	//Returns a pointer to sprites in the order they shall be rendered.
+	virtual std::vector<sf::Sprite*> render() = 0;
 
 	//Returns the name of the entity. (not the name of the type of the entity, but rather the entities own personal name)
 	virtual std::string getName() = 0;
