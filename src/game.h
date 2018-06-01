@@ -4,7 +4,7 @@
 #include <utility>
 #include <vector>
 #include <SFML/Graphics.hpp>
-
+#include <SFML/Audio.hpp>
 
 //The root object of the game. Handles rendering objects to the screen, playing sounds,
 //processing input, and handling events.

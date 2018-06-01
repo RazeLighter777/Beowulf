@@ -9,13 +9,14 @@
 #define SRC_WORLDINTERFACE_H_
 #include <memory>
 #include <vector>
+#include <SFML/Audio.hpp>
 #include "typedefs.h"
 struct Room;
 struct Item;
 struct Entity;
 struct WorldInterface {
 
-	//Returns a reference to the room at the given position.
+	//Returns a reference to the room at the given position. If it does not exist, one will be generated.
 	virtual Room& getRoomAt(Position pos) = 0;
 
 	//Returns all entities within the desired radius.

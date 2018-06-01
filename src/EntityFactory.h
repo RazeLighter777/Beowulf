@@ -12,6 +12,7 @@
 #include "typedefs.h"
 struct WorldInterface;
 struct Entity;
+
 class EntityFactory {
 public:
 
