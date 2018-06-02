@@ -8,7 +8,6 @@
 #ifndef SRC_EFFECTFACTORY_H_
 #define SRC_EFFECTFACTORY_H_
 #include <string>
-#include <rapidjson/document.h>
 #include <memory>
 #include "typedefs.h"
 struct Effect;
