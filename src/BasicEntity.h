@@ -6,6 +6,7 @@
 #include <iostream>
 #include <memory>
 #include <utility>
+#include "Entity.h"
 #include "typedefs.h"
 //Class prototypes
 struct WorldInterface;
