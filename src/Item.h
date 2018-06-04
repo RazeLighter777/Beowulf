@@ -2,7 +2,6 @@
 #define ITEM
 #include <string>
 #include "typedefs.h"
-#include <rapidjson/document.h>
 struct Entity;
 struct WorldInterface;
 struct Item {

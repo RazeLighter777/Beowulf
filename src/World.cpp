@@ -33,13 +33,17 @@ worldGenerator(wgen)
 		{
 			break;
 		}
+		//Read the serialization of the room
+		std::string serialiazation;
+		in >> serialiazation;
+
 		//read the coordinates of the room.
 		in >> x >> y;
 		for (int i = 0; i < roomFactories.size(); i++)
 		{
 			if (roomFactories[i]->getFactoryName() == input)
 			{
-				Room* rm = roomFactories[i]->createNewRoom(*this);
+				Room* rm = roomFactories[i]->createNewRoom(serialiazation, *this);
 				rooms.insert(std::make_pair(Position(x,y), rm));
 				break;
 
@@ -204,7 +208,7 @@ void World::saveWorld()
 	//Loop through each of the rooms
 	for ( auto it = rooms.begin(); it != rooms.end(); it++ )
 	{
-    	out << it->second->getFactoryName() << it->first.first  << "\n" << it->first.second << "\n"; 
+    	out << it->second->getFactoryName() << it->first.first  << "\n" << it->first.second <<  it->second->serialize() << "\n"; 
 	}
   	//Add a break to end the section.
   	out << "BREAK\n";

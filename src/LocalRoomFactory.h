@@ -16,13 +16,13 @@ class LocalRoomFactory: public RoomFactory {
 
 	std::string getFactoryName() const override;
 
-	Room* createNewRoom(WorldInterface& winterface) override;
+	Room* createNewRoom(std::string serialization, WorldInterface& winterface) override;
 
 };
 
 template<typename T>
-Room* LocalRoomFactory<T>::createNewRoom(WorldInterface& winterface) {
-	return new T(winterface);
+Room* LocalRoomFactory<T>::createNewRoom(std::string serialization, WorldInterface& winterface) {
+	return new T(serialization, winterface);
 }
 
 template<typename T>

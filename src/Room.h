@@ -7,7 +7,7 @@
 
 #ifndef SRC_ROOM_H_
 #define SRC_ROOM_H_
-#include <rapidjson/document.h>
+#include <SFML/Graphics.hpp>
 #include "typedefs.h"
 struct WorldInterface;
 
@@ -27,6 +27,9 @@ struct Room {
 
 	//Returns the name of the type of the entity. (Refers to a species)
 	virtual std::string getTypeName() = 0;
+
+	//Serializes the room data.
+	virtual std::string serialize() = 0;
 
 	//Returns the name of the factory of the entity. (IE the factory used to construct it) !!!! Should be equal to typeid(T).name() !!!!
 	virtual std::string getFactoryName() = 0;

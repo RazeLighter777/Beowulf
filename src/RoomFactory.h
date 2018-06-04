@@ -16,7 +16,7 @@ public:
 
 	virtual std::string getFactoryName() const = 0;
 
-	virtual Room* createNewRoom(WorldInterface& winterface) = 0;
+	virtual Room* createNewRoom(std::string serialization, WorldInterface& winterface) = 0;
 
 	virtual ~RoomFactory() {};
 

@@ -1,21 +1,18 @@
-#ifndef ENTITY
-#define ENTITY
+#ifndef BASICENTITY
+#define BASICENTITY
 
 #include <string>
 #include <vector>
 #include <iostream>
 #include <memory>
 #include <utility>
+#include <SFML/Graphics.hpp>
+#include "Item.h"
 #include "Entity.h"
-#include "typedefs.h"
-//Class prototypes
-struct WorldInterface;
-struct AttackDescriptor;
-struct Item;
 
 //Implementation of the abstract entity interface.
-struct BasicEntity {
-
+struct BasicEntity : public Entity {
+public:
 	//Dynamic constructor.
 	BasicEntity(Position position_, WorldInterface& worldInterface_);
 
@@ -61,7 +58,7 @@ struct BasicEntity {
 
 protected:
 
-	Postion position;
+	Position position;
 
 	WorldInterface& worldInterface;
 
