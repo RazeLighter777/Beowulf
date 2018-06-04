@@ -29,7 +29,7 @@ public:
 	//Returns the name of the entity. (not the name of the type of the entity, but rather the entities own personal name)
 	virtual std::string getName();
 
-	//Returns the name of the type of the entity. (Refers to a species, not )
+	//Returns the name of the type of the entity. (Refers to a species, not a factory name)
 	virtual std::string getTypeName();
 
 	//Returns 1 if the entity is dead (IE should be removed)
@@ -65,6 +65,8 @@ protected:
 	std::vector<sf::Sprite*> spriteLayers;
 
 	bool dead = 0;
+
+	const char* textureName = "floortiles/defaultfloor.png";
 
 
 };

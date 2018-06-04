@@ -9,6 +9,7 @@
 #define SRC_LOCALENTITYFACTORY_H_
 
 //XXX - Should not include iostream
+#include <typeinfo>
 #include <iostream>
 #include "EntityFactory.h"
 

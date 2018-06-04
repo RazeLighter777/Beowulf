@@ -9,6 +9,7 @@
 #define SRC_LOCALROOMFACTORY_H_
 
 #include <iostream>
+#include <typeinfo>
 #include "RoomFactory.h"
 
 template<typename T>

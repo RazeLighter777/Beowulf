@@ -8,6 +8,7 @@
 #ifndef SRC_LOCALEFFECTFACTORY_H_
 #define SRC_LOCALEFFECTFACTORY_H_
 
+#include <typeinfo>
 #include "EffectFactory.h"
 
 template<typename T>

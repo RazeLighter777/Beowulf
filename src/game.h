@@ -1,6 +1,12 @@
 #ifndef GAME
 #define GAME
 
+#include "LocalEntityFactory.h"
+#include "LocalRoomFactory.h"
+#include "BasicEntity.h"
+#include "BasicRoom.h"
+#include "World.h"
+#include "WorldGenerator.h"
 #include <utility>
 #include <vector>
 #include <SFML/Graphics.hpp>
@@ -40,6 +46,8 @@ private:
 	//Render the games objects to the screen
 	void render();
 
+	
+
 private:
 
 	//The window in which the game will draw itself.
@@ -49,6 +57,7 @@ private:
 	//The vector of pointers to game textures. The textures will be managed to keep it under size.
 	std::vector<sf::Texture*> gameTextures;
 
+	WorldInterface* world;
 
 };
 #endif

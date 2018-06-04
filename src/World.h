@@ -16,6 +16,8 @@
 #include "Entity.h"
 #include "game.h"
 
+class Game;
+
 class World : public WorldInterface {
 public:
 

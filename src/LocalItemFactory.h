@@ -8,6 +8,7 @@
 #ifndef SRC_LOCALITEMFACTORY_H_
 #define SRC_LOCALITEMFACTORY_H_
 
+#include <typeinfo>
 #include "ItemFactory.h"
 
 template<typename T>

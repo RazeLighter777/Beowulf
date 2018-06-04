@@ -1,75 +1,76 @@
-#include "BasicEntity.h"
+#include "BasicRoom.h"
 
-BasicEntity::BasicEntity(Position position_, WorldInterface& worldInterface_)
-: position(position_),
-worldInterface(worldInterface_)
+WorldInterface& BasicRoom::getWorld() const
 {
-	
+    return worldInterface;
 }
 
-BasicEntity::BasicEntity(std::string serialization, WorldInterface& worldInterface_)
-: worldInterface(worldInterface_)
+BasicEntity::BasicEntity(Position position_, WorldInterface& worldInterface_) :
+worldInterface(worldInterface_),
+position(position_)
 {
+    sf::Sprite* defaultsprite = new sf::Sprite();
+    defaultsprite->setTexture(worldInterface.getTexture(textureName));
+    spriteLayers.push_back(defaultsprite);
+}
 
+BasicEntity::BasicEntity(std::string serialization, WorldInterface& worldInterface_) :
+worldInterface(worldInterface_)
+{
+    sf::Sprite* defaultsprite = new sf::Sprite();
+    defaultsprite->setTexture(worldInterface.getTexture(getNextProperty(serialization)));
+    spriteLayers.push_back(defaultsprite);
 }
 
 Position BasicEntity::getPosition()
 {
-	return position;
+    return position;
 }
 
 std::string BasicEntity::getFactoryName() const
 {
-	return typeid(BasicEntity).name();
+    return typeid(BasicEntity).name();
 }
 
 std::vector<sf::Sprite*> BasicEntity::render()
 {
-	return spriteLayers;
-}
-
-std::string BasicEntity::getName()
-{
-	return std::string("BasicEntity");
+    return spriteLayers;
 }
 
 std::string BasicEntity::getTypeName()
 {
-	return std::string("BasicEntity");
+    return std::string("BasicEntity");
 }
 
 bool BasicEntity::isDead()
 {
-	return dead;
+    return false;
 }
 
 void BasicEntity::update()
 {
-	return;
+    return;
 }
 
 std::string BasicEntity::serialize()
 {
-	return std::string(position.first) + ":" + std::string(position.second);
+    return std::string(textureName) + ":";
 }
-
-WorldInterface& BasicEntity::getWorld() const
-{
-	return worldInterface;
-} 
 
 void BasicEntity::damage(AttackDescriptor& Descriptor)
 {
-	return;
+    return;
 }
 
 void BasicEntity::sendMessage(std::string& Msg, Entity& Sender)
 {
-	return;
+    return;
 }
 
 void BasicEntity::giveItem(std::unique_ptr<Item> Item)
 {
-	return;
+    //XXX - Make it so the item drops in the world instead of deleting.
+    delete Item.release();
+    return;
 }
 
