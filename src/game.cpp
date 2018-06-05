@@ -44,3 +44,29 @@ void Game::render() {
 
 	mWindow.display();
 }
+
+
+sf::SoundBuffer& Game::getSound(std::string soundname)
+{
+	for (int i = 0; i < gameSounds.size(); i++)
+	{
+		if (soundname == gameSounds[i].first)
+		{
+			return *(gameSounds[i].second);
+		}
+	}
+	exit(1);
+}
+
+sf::Texture& Game::getTexture(std::string texturename)
+{
+	
+	for (int i = 0; i < gameTextures.size(); i++)
+	{
+		if (texturename == gameTextures[i].first)
+		{
+			return *(gameTextures[i].second);
+		}
+	}
+	exit(1);
+}

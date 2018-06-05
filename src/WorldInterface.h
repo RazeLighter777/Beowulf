@@ -47,6 +47,10 @@ struct WorldInterface {
 	//Constructs an item with the given name using the json string and returns a unique pointer to it.
 	virtual std::unique_ptr<Item> createItem(std::string serializationData, std::string name) = 0;
 
+	//Constructs a room of the given name with the given serialization, and returns it.
+	virtual std::shared_ptr<Room> createRoom(std::string type, std::string serializationData) = 0;
+
+
 	//Returns 1 if the item exists in the factory database (IE can be constructed). Returns 0 otherwise.
 	virtual bool itemTypeExists(std::string name) = 0;
 

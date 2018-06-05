@@ -1,4 +1,5 @@
 #include <iostream>
+#include "BasicRoom.h"
 #include "game.h"
 
 int main() {

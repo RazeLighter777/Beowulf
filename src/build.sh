@@ -1,1 +1,1 @@
-clang *.cpp -o main -v -lsfml-system -lsfml-window -lsfml-graphics
+g++ *.cpp -g -o main  -lsfml-graphics -lsfml-window -lsfml-system

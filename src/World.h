@@ -68,6 +68,8 @@ public:
 	//Updates the world.
 	void update();
 
+	std::shared_ptr<Room> createRoom(std::string type, std::string serializationData);
+
 //Data members for the world
 private:
 

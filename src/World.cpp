@@ -169,7 +169,7 @@ Room& World::getRoomAt(Position pos)
 {
 	if ( rooms.find(pos) == rooms.end()) 
 	{
-		rooms[pos] = worldGenerator.generateRoomAt(pos);
+		rooms[pos] = worldGenerator.generateRoomAt(pos, *this);
 		return *(rooms[pos]);
 	} 
 	else 
@@ -233,4 +233,15 @@ void World::update()
   	}
   	//Increment the time counter.
   	time++;
+}
+
+std::shared_ptr<Room> World::createRoom(std::string type, std::string serializationData)
+{
+	for (unsigned i = 0; i < roomFactories.size(); i++)
+	{
+		if (roomFactories[i]->getFactoryName() == type)
+		{
+			return std::shared_ptr<Room>(roomFactories[i]->createNewRoom(serializationData, *this));
+		}
+	}
 }

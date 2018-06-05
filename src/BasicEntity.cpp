@@ -1,8 +1,13 @@
 #include "BasicRoom.h"
 
-WorldInterface& BasicRoom::getWorld() const
+WorldInterface& BasicEntity::getWorld() const
 {
     return worldInterface;
+}
+
+std::string BasicEntity::getName() 
+{
+    return "BasicEntity";
 }
 
 BasicEntity::BasicEntity(Position position_, WorldInterface& worldInterface_) :

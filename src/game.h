@@ -53,9 +53,9 @@ private:
 	//The window in which the game will draw itself.
 	sf::RenderWindow mWindow;
 	//The vector of pointers to sound buffers. The sound buffer will be managed to keep it under size.
-	std::vector<sf::SoundBuffer*> gameSounds;
+	std::vector<std::pair<std::string, sf::SoundBuffer*>> gameSounds;
 	//The vector of pointers to game textures. The textures will be managed to keep it under size.
-	std::vector<sf::Texture*> gameTextures;
+	std::vector<std::pair<std::string, sf::Texture*>> gameTextures;
 
 	WorldInterface* world;
 
