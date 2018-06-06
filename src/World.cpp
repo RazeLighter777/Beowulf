@@ -178,6 +178,7 @@ Room& World::getRoomAt(Position pos)
 	}
 }
 
+
 bool World::isValidMove(Position pos)
 {
 	return !getRoomAt(pos).isSolid();
