@@ -6,7 +6,7 @@
 #include "BasicEntity.h"
 #include "BasicRoom.h"
 #include "World.h"
-#include "WorldGenerator.h"
+#include "TestWorldGenerator.h"
 #include <utility>
 #include <vector>
 #include <SFML/Graphics.hpp>
@@ -30,6 +30,8 @@ public:
 	//Returns the sound named by the string.
 	sf::SoundBuffer& getSound(std::string soundname);
 
+	//Exposes the window interface
+	sf::RenderWindow& exposeWindow();
 
 
 private:

@@ -18,7 +18,7 @@ Game::Game(std::pair<unsigned, unsigned> windowSize) : mWindow(sf::VideoMode(win
 	std::vector<ItemFactory*>(),
 	std::vector<EffectFactory*>(),
 	std::vector<RoomFactory*>({new LocalRoomFactory<BasicRoom>()}),
-	*static_cast<WorldGenerator*>(NULL));
+	*new TestWorldGenerator());
 	
 }
 void Game::processEvents()
@@ -48,6 +48,7 @@ void Game::render() {
 
 sf::SoundBuffer& Game::getSound(std::string soundname)
 {
+	//Try to find the sound if it's already loaded.
 	for (int i = 0; i < gameSounds.size(); i++)
 	{
 		if (soundname == gameSounds[i].first)
@@ -60,7 +61,7 @@ sf::SoundBuffer& Game::getSound(std::string soundname)
 
 sf::Texture& Game::getTexture(std::string texturename)
 {
-	
+	//Try to find the texture if it is already loaded. 	
 	for (int i = 0; i < gameTextures.size(); i++)
 	{
 		if (texturename == gameTextures[i].first)
@@ -68,5 +69,14 @@ sf::Texture& Game::getTexture(std::string texturename)
 			return *(gameTextures[i].second);
 		}
 	}
+	sf::Texture* newtexture = new sf::Texture();
+	newtexture->loadFromFile(texturename);
+	gameTextures.push_back(std::pair<std::string, sf::Texture*>(texturename, newtexture));
+	return *newtexture;
 	exit(1);
+}
+
+sf::RenderWindow& Game::exposeWindow()
+{
+	return mWindow;
 }

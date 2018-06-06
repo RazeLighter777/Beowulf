@@ -70,6 +70,8 @@ public:
 
 	std::shared_ptr<Room> createRoom(std::string type, std::string serializationData);
 
+	sf::RenderWindow& exposeWindow();
+
 //Data members for the world
 private:
 

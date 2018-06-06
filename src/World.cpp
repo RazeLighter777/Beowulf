@@ -245,3 +245,8 @@ std::shared_ptr<Room> World::createRoom(std::string type, std::string serializat
 		}
 	}
 }
+
+sf::RenderWindow& World::exposeWindow()
+{
+	return worldGame.exposeWindow();
+}

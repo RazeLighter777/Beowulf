@@ -16,6 +16,7 @@
         {
             result += serial[index];
         }
+        index++;
     };
     serial.erase(0, result.size() + 1);
     return result;

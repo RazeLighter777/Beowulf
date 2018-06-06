@@ -72,6 +72,9 @@ struct WorldInterface {
 	//Request a sound from the game engine
 	virtual sf::SoundBuffer& getSound(std::string soundName) = 0;
 
+	//Exposes the screen to the caller.
+	virtual sf::RenderWindow& exposeWindow() = 0;
+
 };
 
 

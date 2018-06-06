@@ -10,7 +10,7 @@ public:
     std::shared_ptr<Room> generateRoomAt(Position pos, WorldInterface& worldInterface);
 protected:
 
-        const char* defaultRoomTexture = "../assets/art/floortiles/grassy.png";
+        const char* defaultRoomTexture = "../assets/art/FloorTiles/grassfloor.png";
 }; 
 
 #endif
