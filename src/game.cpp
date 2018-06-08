@@ -35,14 +35,10 @@ void Game::processEvents()
 
 void Game::update() 
 {
-	
+	world->update();
 }
 
 void Game::render() {
-	mWindow.clear();
-
-	//TODO: Render everything on the screen.
-
 	mWindow.display();
 }
 

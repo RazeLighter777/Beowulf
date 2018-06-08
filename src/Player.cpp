@@ -17,6 +17,7 @@ std::string Player::getTypeName()
 
 void Player::update()
 {
+    drawMap(worldInterface.exposeWindow());
     return;
 }
 
@@ -40,7 +41,7 @@ void Player::giveItem(std::unique_ptr<Item> Item)
     delete Item.release();
 }
 
-Player::Player(std::string serialization, WorldInterface& worldInterface_) :
+Player::Player(std::string& serialization, WorldInterface& worldInterface_) :
 BasicEntity(serialization, worldInterface_)
 {
     playerName = getNextProperty(serialization);
@@ -62,8 +63,8 @@ void Player::drawMap(sf::RenderWindow& win)
         {
             unsigned actualX = position.first - 12 + j;
 
-            unsigned drawingX = actualX * 32;
-            unsigned drawingY = actualY * 32;
+            unsigned drawingX = j * 32;
+            unsigned drawingY = i * 32;
 
             worldInterface.getRoomAt(Position(actualX, actualY)).render().setPosition(sf::Vector2f(drawingX, drawingY));
             win.draw(worldInterface.getRoomAt(Position(actualX, actualY)).render());

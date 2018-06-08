@@ -19,7 +19,7 @@ position(position_)
     spriteLayers.push_back(defaultsprite);
 }
 
-BasicEntity::BasicEntity(std::string serialization, WorldInterface& worldInterface_) :
+BasicEntity::BasicEntity(std::string& serialization, WorldInterface& worldInterface_) :
 worldInterface(worldInterface_)
 {
     sf::Sprite* defaultsprite = new sf::Sprite();

@@ -16,7 +16,7 @@ public:
 	//Dynamic constructor.
 	BasicEntity(Position position_, WorldInterface& worldInterface_);
 
-	BasicEntity(std::string serialization, WorldInterface& worldInterface_);
+	BasicEntity(std::string& serialization, WorldInterface& worldInterface_);
 
 	//Returns the position of the entity on the gameboard
 	virtual Position getPosition();

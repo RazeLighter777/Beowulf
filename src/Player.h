@@ -12,7 +12,7 @@ public:
     //Dynamic constructor, allows for player creation interface.
 	Player(Position position_, WorldInterface& worldInterface_);
 
-    Player(std::string serialization, WorldInterface& worldInterface_);
+    Player(std::string& serialization, WorldInterface& worldInterface_);
 
     virtual std::string getFactoryName() const override;
 

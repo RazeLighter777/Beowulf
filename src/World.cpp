@@ -21,7 +21,7 @@ worldGenerator(wgen)
 	//If it does not work, close it.
 	if (!in.good()) {
 		std::cerr << "There was an issue opening the world at " << filename << " for reading.\n";
-		return;
+		exit(1);
 	}
 	//Construct all of the rooms from the files.
 	while (true) {
