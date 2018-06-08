@@ -25,6 +25,8 @@ worldInterface(worldInterface_)
     sf::Sprite* defaultsprite = new sf::Sprite();
     defaultsprite->setTexture(worldInterface.getTexture(getNextProperty(serialization)));
     spriteLayers.push_back(defaultsprite);
+    position.first = std::stoi(getNextProperty(serialization));
+    position.second = std::stoi(getNextProperty(serialization));
 }
 
 Position BasicEntity::getPosition()
@@ -59,7 +61,7 @@ void BasicEntity::update()
 
 std::string BasicEntity::serialize()
 {
-    return std::string(textureName) + ":";
+    return std::string(textureName) + ":" + std::to_string(position.first) + ":" + std::to_string(position.second) + ":";
 }
 
 void BasicEntity::damage(AttackDescriptor& Descriptor)

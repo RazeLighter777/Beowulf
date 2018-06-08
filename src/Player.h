@@ -1,6 +1,9 @@
 #ifndef PLAYER
 #define PLAYER
 
+#include "WorldInterface.h"
+#include "Serialization.h"
+#include "Room.h"
 #include "BasicEntity.h"
 
 class Player : public BasicEntity {
@@ -33,6 +36,7 @@ private:
 
     void drawMap(sf::RenderWindow& win);
 
+    std::string playerName;
 
 };
 

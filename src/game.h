@@ -4,6 +4,7 @@
 #include "LocalEntityFactory.h"
 #include "LocalRoomFactory.h"
 #include "BasicEntity.h"
+#include "Player.h"
 #include "BasicRoom.h"
 #include "World.h"
 #include "TestWorldGenerator.h"

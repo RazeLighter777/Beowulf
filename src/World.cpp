@@ -94,7 +94,6 @@ void World::createEntity(std::string serializationData, std::string name)
 			entities.push_back(entityFactories[i]->loadEntity(serializationData, *this));
 		}
 	}
-
 }
 std::unique_ptr<Item> World::createItem(std::string name) 
 {
@@ -245,7 +244,9 @@ std::shared_ptr<Room> World::createRoom(std::string type, std::string serializat
 			return std::shared_ptr<Room>(roomFactories[i]->createNewRoom(serializationData, *this));
 		}
 	}
+	return std::shared_ptr<Room>(roomFactories[0]->createNewRoom("", *this));
 }
+
 
 sf::RenderWindow& World::exposeWindow()
 {

@@ -14,7 +14,8 @@ Game::Game(std::pair<unsigned, unsigned> windowSize) : mWindow(sf::VideoMode(win
 {
 	world = new World(*this, 
 	"../saves/sv1.sav",
-	std::vector<EntityFactory*>({new LocalEntityFactory<BasicEntity>()}),
+	std::vector<EntityFactory*>({new LocalEntityFactory<BasicEntity>(),
+	new LocalEntityFactory<Player>()}),
 	std::vector<ItemFactory*>(),
 	std::vector<EffectFactory*>(),
 	std::vector<RoomFactory*>({new LocalRoomFactory<BasicRoom>()}),
@@ -34,7 +35,7 @@ void Game::processEvents()
 
 void Game::update() 
 {
-
+	
 }
 
 void Game::render() {
