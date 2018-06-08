@@ -2,5 +2,5 @@
 
 std::shared_ptr<Room> TestWorldGenerator::generateRoomAt(Position pos, WorldInterface& worldInterface)
 {
-    return worldInterface.createRoom(typeid(BasicRoom).name(), defaultRoomTexture);
+    return worldInterface.createRoom(typeid(BasicRoom).name(), std::string(defaultRoomTexture) + ":");
 }

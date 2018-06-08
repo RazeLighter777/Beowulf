@@ -66,7 +66,7 @@ protected:
 
 	bool dead = 0;
 
-	const char* textureName = "floortiles/defaultfloor.png";
+	std::string textureName = "../assets/art/FloorTiles/MissingTexture.png";
 
 
 };

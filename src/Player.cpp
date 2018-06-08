@@ -17,6 +17,7 @@ std::string Player::getTypeName()
 
 void Player::update()
 {
+    //Draw the map to the screen.
     drawMap(worldInterface.exposeWindow());
     return;
 }
@@ -55,6 +56,8 @@ BasicEntity(position_, worldInterface_)
 
 void Player::drawMap(sf::RenderWindow& win)
 {
+    //Probably the most complex piece of code in this whole thing, so I will give an overview. It basically 
+    //draws all tiles within the players raidus with some fancy nested for-loops. 
     std::vector<std::shared_ptr<Entity>> entitiesOnTiles = worldInterface.getEntitiesInRadius(position, 32);
     for (unsigned i = 0; i < 16; i++)
     {

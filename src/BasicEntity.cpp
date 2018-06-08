@@ -23,7 +23,8 @@ BasicEntity::BasicEntity(std::string& serialization, WorldInterface& worldInterf
 worldInterface(worldInterface_)
 {
     sf::Sprite* defaultsprite = new sf::Sprite();
-    defaultsprite->setTexture(worldInterface.getTexture(getNextProperty(serialization)));
+    textureName = getNextProperty(serialization);
+    defaultsprite->setTexture(worldInterface.getTexture(textureName));
     spriteLayers.push_back(defaultsprite);
     position.first = std::stoi(getNextProperty(serialization));
     position.second = std::stoi(getNextProperty(serialization));
@@ -61,7 +62,7 @@ void BasicEntity::update()
 
 std::string BasicEntity::serialize()
 {
-    return std::string(textureName) + ":" + std::to_string(position.first) + ":" + std::to_string(position.second) + ":";
+    return textureName + ":" + std::to_string(position.first) + ":" + std::to_string(position.second) + ":";
 }
 
 void BasicEntity::damage(AttackDescriptor& Descriptor)

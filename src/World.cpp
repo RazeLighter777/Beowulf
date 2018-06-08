@@ -1,5 +1,5 @@
 #include "World.h"
-
+#include <sstream>
 World::World(Game& game_, 
 		std::string filename_,
 		std::vector<EntityFactory*> entityFactories_,
@@ -205,20 +205,29 @@ void World::saveWorld()
 {
 	//Open the output file.
 	std::ofstream out(filename);
+	//std::stringstream out;
 	//Loop through each of the rooms
 	for ( auto it = rooms.begin(); it != rooms.end(); it++ )
 	{
-    	out << it->second->getFactoryName() << it->first.first  << "\n" << it->first.second <<  it->second->serialize() << "\n"; 
+    	out 
+		<< it->second->getFactoryName() << "\n" 
+		<< it->second->serialize() << "\n"
+		<< it->first.first  << "\n" 
+		<< it->first.second << "\n";
 	}
+	//std::string test = out.str();
   	//Add a break to end the section.
   	out << "BREAK\n";
   	//Write each of the entities and thier serialiazation to the file.
   	for (unsigned i = 0; i < entities.size(); i++) 
   	{
   		out << entities[i]->getFactoryName() << "\n" << entities[i]->serialize() << "\n";
+		//test = out.str();
   	}
   	//Output a break to end the section.
   	out << "BREAK\n";
+
+	//std::clog << out.str();
 } 
 
 void World::update()
